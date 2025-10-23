@@ -31,16 +31,16 @@ public float nextPrimaryDelay_ = 0.5f;
         Vector2 move = Move.action.ReadValue<Vector2>();
 
         Vector3 newPos = transform.position + (new Vector3(move.x*moveSpeed, 0.0f, move.y*moveSpeed) * Time.deltaTime);//use delta tiem to slow down movement by making it frame rate independent
-        newPos.x = Mathf.Clamp(newPos.x, -8f, -3.5f);
-        newPos.z = Mathf.Clamp(newPos.z, 1f, 8f); 
+        newPos.x = Mathf.Clamp(newPos.x, -9f, -2f);
+        newPos.z = Mathf.Clamp(newPos.z, 0f, 7f); 
         transform.position = newPos; 
         if(primaryDown_ == true && Time.time > nextPrimaryTime_){
-            Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);            Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);
+            Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);            
             Instantiate(BulletPrefab, hardpoint1.transform.position, hardpoint1.rotation);
 
             nextPrimaryTime_ = Time.time + nextPrimaryDelay_;}
-        if(secondaryDown_ == true && Time.time > nextSecondaryTime_){
-            Instantiate(MisslePrefab, hardpoint.transform.position, hardpoint.rotation);            Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);
+        else if(secondaryDown_ == true && Time.time > nextSecondaryTime_){
+            Instantiate(MisslePrefab, hardpoint.transform.position, hardpoint.rotation);            
             Instantiate(MisslePrefab, hardpoint1.transform.position, hardpoint1.rotation);
 
             nextSecondaryTime_ = Time.time + nextSecondaryDelay_;}
