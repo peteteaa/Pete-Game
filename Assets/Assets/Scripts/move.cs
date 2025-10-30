@@ -11,6 +11,9 @@ public InputActionReference Secondary;
       public Transform hardpoint1;
       public GameObject MisslePrefab;
       public float nextSecondaryDelay_ = 0.5f;
+         public AudioClip primarySound;
+         public AudioClip secondarySound;
+    public AudioSource audioSource;
 
     public float moveSpeed = 0.01f;
 public float nextPrimaryDelay_ = 0.5f;
@@ -21,7 +24,7 @@ public float nextPrimaryDelay_ = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -37,12 +40,14 @@ public float nextPrimaryDelay_ = 0.5f;
         if(primaryDown_ == true && Time.time > nextPrimaryTime_){
             Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);            
             Instantiate(BulletPrefab, hardpoint1.transform.position, hardpoint1.rotation);
-
+            audioSource.clip = primarySound;
+            audioSource.Play();
             nextPrimaryTime_ = Time.time + nextPrimaryDelay_;}
         else if(secondaryDown_ == true && Time.time > nextSecondaryTime_){
             Instantiate(MisslePrefab, hardpoint.transform.position, hardpoint.rotation);            
             Instantiate(MisslePrefab, hardpoint1.transform.position, hardpoint1.rotation);
-
+            audioSource.clip = secondarySound;
+            audioSource.Play();
             nextSecondaryTime_ = Time.time + nextSecondaryDelay_;}
 
     }
