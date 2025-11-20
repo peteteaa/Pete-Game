@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7cf6f60b01544b086c1852a259c931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::moveenemy
-  speed: 10
+  speed: 14
 --- !u!82 &-3152210493055727379
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 137e7b6f2de255c46830d275ef53ed77
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189299
+  packageName: Airplane P38J Lightning
+  packageVersion: 1.0
+  assetPath: Assets/P38J Lightning/Materials/URP/PaletteBrown.mat
+  uploadId: 417524

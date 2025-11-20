@@ -1,23 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class collision : MonoBehaviour
 {
     public AudioClip explosionSound;
     public AudioSource audioSource;
-    public GameUIController gameUI;
+
     private void OnCollisionEnter(Collision collision)
     {
         audioSource.clip = explosionSound;
-        if (collision.gameObject.CompareTag("enemy") && this.gameObject.CompareTag("player"))
+
+        if (collision.gameObject.CompareTag("enemy") && gameObject.CompareTag("player"))
         {
-            // Pause the game when player collides with enemy
+            // Play explosion
+            audioSource.Play();
 
-                audioSource.Play();
-                 gameUI.TakeDamage(100);
-                 Destroy(collision.gameObject);
+            // Use singleton instead of Inspector reference
+            GameUIController.Instance.TakeDamage(10);
 
+            Destroy(collision.gameObject);
         }
 
-        
+        // Check score for scene switch
+        if (GameUIController.Instance != null && GameUIController.Instance.score >= 200)
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            // Only switch if not already in boss scene
+            if (currentScene != "Assignment8Scene2")
+            {
+                SceneManager.LoadScene("Assignment8Scene2");
+            }
+        }
     }
 }

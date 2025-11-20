@@ -7,7 +7,7 @@ public class shootenemy : MonoBehaviour
     public Transform hardpoint1;
     public AudioClip primarySound;
     public AudioSource audioSource;
-    public float fireInterval = 2f;
+    public float fireInterval = 0.5f;
 
     private float nextPrimaryTime_;
 

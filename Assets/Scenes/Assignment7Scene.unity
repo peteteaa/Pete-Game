@@ -900,7 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308a96bc8da4047ab96d5801330715af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::spawnenemy
-  enemyPrefab: {fileID: 6372374261331156305, guid: 49d8b81c08985407cbef744da860fe78, type: 3}
+  enemyA: {fileID: 6372374261331156305, guid: 49d8b81c08985407cbef744da860fe78, type: 3}
+  enemyB: {fileID: 6372374261331156305, guid: 5bbdad2c7a77541c0b0e00b1745744b0, type: 3}
   spawnDelay: 4
 --- !u!4 &1253507306
 Transform:

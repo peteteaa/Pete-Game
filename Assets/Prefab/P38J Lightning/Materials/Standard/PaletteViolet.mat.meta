@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c2cc3226e22d5bb458beff846924f97d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189299
+  packageName: Airplane P38J Lightning
+  packageVersion: 1.0
+  assetPath: Assets/P38J Lightning/Materials/Standard/PaletteViolet.mat
+  uploadId: 417524

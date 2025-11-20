@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::collision
   explosionSound: {fileID: 8300000, guid: 95d7c483461854c8da5a8e548256000a, type: 3}
   audioSource: {fileID: 4599213029091454491}
+  gameUI: {fileID: 222387422390091071, guid: 4a47976e0d09c46f4997f7469a583500, type: 3}
 --- !u!82 &4599213029091454491
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: efde1450152d35c40913e319b239dc51
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 189299
+  packageName: Airplane P38J Lightning
+  packageVersion: 1.0
+  assetPath: Assets/P38J Lightning/Materials/HDRP/PaletteViolet.mat
+  uploadId: 417524

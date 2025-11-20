@@ -1,18 +1,47 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-
+using UnityEngine.SceneManagement;
 public class GameUIController : MonoBehaviour
 {
     public int maxLives = 3;
     public int maxHealth = 100;
-
-    public int score;
-    private int health;
-    private int lives;
+    public static GameUIController Instance;
+    public int score = 0    ;
+    public int health;
+    public int lives;
 
     private Label scoreLabel;
     private Label healthLabel;
     private VisualElement livesContainer;
+        private bool gameOver = false;
+    private float gameOverStartTime;
+    private float gameOverDuration = 3f;
+  void Awake()
+{
+
+
+    if (Instance == null)
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // Only initialize defaults if PlayerInfo has no values yet
+        if (PlayerInfo.CurrentScore == 0 && PlayerInfo.CurrentHealth == 0 && PlayerInfo.NumRemainingLives == 0)
+        {
+            score = 0;
+            health = maxHealth;
+            lives = maxLives;
+
+            PlayerInfo.CurrentScore = score;
+            PlayerInfo.CurrentHealth = health;
+            PlayerInfo.NumRemainingLives = lives;
+        }
+    }
+    else
+    {
+        Destroy(gameObject); // Remove duplicate
+    }
+}
 
     void Start()
     {
@@ -26,11 +55,11 @@ public class GameUIController : MonoBehaviour
 
         livesContainer = root.Q<VisualElement>("lives");
 
+         score = PlayerInfo.CurrentScore;
+        health = PlayerInfo.CurrentHealth;
+        lives = PlayerInfo.NumRemainingLives;
 
-        // Initialize values
-        score = 0;
-        health = maxHealth;
-        lives = maxLives;
+
 
         UpdateUI();
     }
@@ -38,6 +67,7 @@ public class GameUIController : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+        PlayerInfo.CurrentScore = score;
         UpdateUI();
     }
 
@@ -48,22 +78,39 @@ public class GameUIController : MonoBehaviour
         if (health <= 0)
         {
             lives--;
+
+
             if (lives <= 0)
             {
-                Time.timeScale = 0f; // Game over
+                if (scoreLabel != null)
+                    scoreLabel.text = "Game Over!";
 
+
+                gameOver = true;
+                gameOverStartTime = Time.realtimeSinceStartup;
+                PlayerInfo.CurrentScore = 0;
+                PlayerInfo.CurrentHealth = 100;
+                PlayerInfo.NumRemainingLives = 3;    
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                UpdateUI();
+                return;
             }
             else
             {
                 health = maxHealth; // Reset health
             }
         }
-
+        PlayerInfo.CurrentHealth = health;
+        PlayerInfo.NumRemainingLives = lives;
+    
         UpdateUI();
     }
 
     void UpdateUI()
     {
+        Debug.Log("lives: " + PlayerInfo.NumRemainingLives);
+        Debug.Log("health: " + PlayerInfo.CurrentHealth);
+        Debug.Log("score: " + PlayerInfo.CurrentScore);   
         if (scoreLabel != null)
             scoreLabel.text = "score: " + score;
         if (healthLabel != null)
