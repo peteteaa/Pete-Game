@@ -66,7 +66,7 @@ private int direction = 1;
 
         if (currentHealth <= 0)
         {
-            BossSpawner.bossSpawned = false;
+            GameUIController.Instance.AddScore(1000);
             Destroy(gameObject);
         }
     }

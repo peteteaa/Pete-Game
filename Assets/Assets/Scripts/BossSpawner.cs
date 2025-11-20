@@ -16,7 +16,7 @@ public class BossSpawner : MonoBehaviour
         void Update()
         {
             // Check if the boss has already spawned
-            if (!bossSpawned && GameUIController.Instance != null && GameUIController.Instance.score % 400 ==0 )
+            if (!bossSpawned && GameUIController.Instance != null && GameUIController.Instance.score >= 400 )
             {
                 Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
                 bossSpawned = true; // Ensure it only spawns once

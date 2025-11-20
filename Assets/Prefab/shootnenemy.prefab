@@ -1259,7 +1259,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 5616317766239739464, guid: f8efeb666dd30474ea3186903b5dc94b, type: 3}
   hardpoint: {fileID: 4929890191661476333}
   hardpoint1: {fileID: 3992063300967699587}
-  primarySound: {fileID: 8300000, guid: 4e0051b1e578148749a9be6d91c8d315, type: 3}
+  primarySound: {fileID: 0}
   audioSource: {fileID: -3152210493055727379}
   fireInterval: 2
 --- !u!1 &7584482833070709796

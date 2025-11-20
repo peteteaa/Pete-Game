@@ -16,7 +16,7 @@ public class collision : MonoBehaviour
             audioSource.Play();
 
             // Use singleton instead of Inspector reference
-            GameUIController.Instance.TakeDamage(10);
+            GameUIController.Instance.TakeDamage(5);
 
             Destroy(collision.gameObject);
         }

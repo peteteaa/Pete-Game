@@ -16,6 +16,7 @@ public class GameUIController : MonoBehaviour
         private bool gameOver = false;
     private float gameOverStartTime;
     private float gameOverDuration = 3f;
+    
   void Awake()
 {
 
@@ -24,7 +25,7 @@ public class GameUIController : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
         // Only initialize defaults if PlayerInfo has no values yet
         if (PlayerInfo.CurrentScore == 0 && PlayerInfo.CurrentHealth == 0 && PlayerInfo.NumRemainingLives == 0)
         {
@@ -46,6 +47,8 @@ public class GameUIController : MonoBehaviour
     void Start()
     {
         // Get UI references
+        var doc = GetComponent<UIDocument>();
+        if (doc == null) return;
         var root = GetComponent<UIDocument>()?.rootVisualElement;
 
         scoreLabel = root.Q<Label>("score");
@@ -63,7 +66,20 @@ public class GameUIController : MonoBehaviour
 
         UpdateUI();
     }
-
+    void Update()
+    {
+        if (gameOver)
+        {
+            if (Time.realtimeSinceStartup - gameOverStartTime >= gameOverDuration)
+            {
+                gameOver = false;
+                 PlayerInfo.CurrentScore = 0;
+            PlayerInfo.CurrentHealth = 100;
+            PlayerInfo.NumRemainingLives = 3;
+                SceneManager.LoadScene("Assignment8Start");
+            }
+        }
+    }
     public void AddScore(int amount)
     {
         score += amount;
@@ -82,17 +98,12 @@ public class GameUIController : MonoBehaviour
 
             if (lives <= 0)
             {
+                gameOver = true;
+                gameOverStartTime = Time.realtimeSinceStartup;
+
                 if (scoreLabel != null)
                     scoreLabel.text = "Game Over!";
 
-
-                gameOver = true;
-                gameOverStartTime = Time.realtimeSinceStartup;
-                PlayerInfo.CurrentScore = 0;
-                PlayerInfo.CurrentHealth = 100;
-                PlayerInfo.NumRemainingLives = 3;    
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                UpdateUI();
                 return;
             }
             else
@@ -129,5 +140,36 @@ public class GameUIController : MonoBehaviour
     }
         
     }
+
+
+    // This function is called when a scene is loaded
+    // update the UI when a scene is loaded
+    // used to reset the game when the game is over
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+
+     if (scene.name == "Assignment8Start")
+    {
+        if (scoreLabel != null) scoreLabel.style.display = DisplayStyle.None;
+        if (healthLabel != null) healthLabel.style.display = DisplayStyle.None;
+        if (livesContainer != null) livesContainer.style.display = DisplayStyle.None;
+        return;
+    }
+    var doc = FindAnyObjectByType<UIDocument>();
+    if (doc == null) return;
+
+    var root = doc.rootVisualElement;
+
+    scoreLabel = root.Q<Label>("score");
+    healthLabel = root.Q<Label>("health");
+    livesContainer = root.Q<VisualElement>("lives");
+
+    score = PlayerInfo.CurrentScore;
+    health = PlayerInfo.CurrentHealth;
+    lives = PlayerInfo.NumRemainingLives;
+
+    UpdateUI();
+}
+
 
 }

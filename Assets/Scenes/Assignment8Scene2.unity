@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ed45452bfce4c3aaa8fac858dd173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoopingPlaneManager
-  planePrefab: {fileID: 8481134636501338666, guid: c7e1ff7ad941245d38b29e744230fca2, type: 3}
+  planePrefab: {fileID: 8481134636501338666, guid: cd96d17467ef445b582ede86a4399b2a, type: 3}
   scrollSpeed: 5
 --- !u!4 &659999368
 Transform:

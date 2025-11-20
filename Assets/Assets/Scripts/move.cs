@@ -34,8 +34,8 @@ public float nextPrimaryDelay_ = 0.5f;
         Vector2 move = Move.action.ReadValue<Vector2>();
 
         Vector3 newPos = transform.position + (new Vector3(move.x*moveSpeed, 0.0f, move.y*moveSpeed) * Time.deltaTime);//use delta tiem to slow down movement by making it frame rate independent
-        newPos.x = Mathf.Clamp(newPos.x, -9f, -6f);
-        newPos.z = Mathf.Clamp(newPos.z, -0f, 7f); 
+        newPos.x = Mathf.Clamp(newPos.x, -7f, -4f);
+        newPos.z = Mathf.Clamp(newPos.z, 0f, 7f); 
         transform.position = newPos; 
         if(primaryDown_ == true && Time.time > nextPrimaryTime_){
             Instantiate(BulletPrefab, hardpoint.transform.position, hardpoint.rotation);            

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 628374930990205913}
   serializedVersion: 2
   m_LocalRotation: {x: -0.09263643, y: 0.7092787, z: 0.090501174, w: 0.6929299}
-  m_LocalPosition: {x: -4.797232, y: -2.6683555, z: 8.152747}
+  m_LocalPosition: {x: -5.4, y: 0.23, z: 7.63}
   m_LocalScale: {x: 6.1380153, y: 5.525322, z: 7.3005075}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,15 +61,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebbb4e189c64062409a89c811993b90d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.495712
+      value: 5.49
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebbb4e189c64062409a89c811993b90d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.69887465
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebbb4e189c64062409a89c811993b90d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.2616638
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebbb4e189c64062409a89c811993b90d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::shootenemy
   BulletPrefab: {fileID: 5616317766239739464, guid: f8efeb666dd30474ea3186903b5dc94b, type: 3}
-  hardpoint: {fileID: 7819016665450625094, guid: cdecdca21d1734b3abc2aff7438fbc18, type: 3}
+  hardpoint: {fileID: 3497890696935972240}
   hardpoint1: {fileID: 202005619238907631, guid: b05d3c73ebd0d44a696b4409d2722e91, type: 3}
   primarySound: {fileID: 8300000, guid: 4e0051b1e578148749a9be6d91c8d315, type: 3}
   audioSource: {fileID: 0}
@@ -281,15 +281,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 202005619238907631, guid: b05d3c73ebd0d44a696b4409d2722e91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.039589
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 202005619238907631, guid: b05d3c73ebd0d44a696b4409d2722e91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.57472306
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 202005619238907631, guid: b05d3c73ebd0d44a696b4409d2722e91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.94952
+      value: 7.97
       objectReference: {fileID: 0}
     - target: {fileID: 202005619238907631, guid: b05d3c73ebd0d44a696b4409d2722e91, type: 3}
       propertyPath: m_LocalRotation.w
